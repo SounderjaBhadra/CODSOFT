@@ -28,6 +28,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
         this.activity=activity;
         this.myDB=myDB;
     }
+    
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +40,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final ToDoModel item=mList.get(position);
         holder.checkBox.setText(item.getTask());
+        holder.checkBox.setOnCheckedChangeListener(null);
         holder.checkBox.setChecked(toBoolean(item.getStatus()));
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
